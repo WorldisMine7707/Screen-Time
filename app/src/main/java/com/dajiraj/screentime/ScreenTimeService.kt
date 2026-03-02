@@ -46,7 +46,21 @@ class ScreenTimeService : Service() {
         return START_STICKY // Restarts if killed
     }
 
-    override fun onBind(intent: IBinder?): IBinder? = null
+    override fun onBind(intent: Intent?): IBinder? = null
+```
+5. **"Commit changes"**
+
+---
+
+## Fix 2 — MainActivity.kt Edit Karo
+
+1. **`MainActivity.kt`** pe jao → **✏️ Edit**
+2. **Ctrl + G** dabao → **731** type karo → Enter (line 731 pe jump karega)
+3. Wahan koi `val` likha hoga jo dobara assign ho raha hoga — use **`var`** se replace karo
+
+Agar Ctrl+G kaam na kare toh **Ctrl+F** → search karo:
+```
+val pageCal
 
     override fun onDestroy() {
         handler.removeCallbacks(updateRunnable)
