@@ -711,9 +711,21 @@ class MainActivity : AppCompatActivity() {
             val pctGood = (good.toFloat()/vals.size*100).toInt()
             val dec31Tv = TextView(this)
             dec31Tv.text = if(isHindi)
-                "📅 31 दिसंबर को याद रखें:\n\n$year में $totalH घंटे फोन पर। दैनिक औसत: ${fmm(avg)}।\n\n${pctGood}% दिन लक्ष्य के भीतर — ${when{pctGood>=70 -> "🏆 शानदार!" pctGood>=50 -> "💪 अच्छी प्रगति!" else -> "🌱 अगले साल और बेहतर!"}}"
+                "📅 31 दिसंबर को याद रखें:\n\n$year में $totalH घंटे फोन पर। दैनिक औसत: ${fmm(avg)}。\n\n${pctGood}% दिन लक्ष्य के भीतर — ${
+    when {
+        pctGood >= 70 -> "🏆 शानदार!"
+        pctGood >= 50 -> "💪 अच्छी प्रगति!"
+        else -> "🌱 अगले साल और बेहतर!"
+    }
+}"
             else
-                "📅 Dec 31 Year-End:\n\nIn $year, you spent $totalH hours on phone. Daily avg: ${fmm(avg)}.\n\n$pctGood% days under goal — ${when{pctGood>=70 -> "🏆 Remarkable!" pctGood>=50 -> "💪 Good progress!" else -> "🌱 Better next year!"}}"
+                "📅 Dec 31 Year-End:\n\nIn $year, you spent $totalH hours on phone. Daily avg: ${fmm(avg)}.\n\n$pctGood% days under goal — ${
+    when {
+        pctGood >= 70 -> "🏆 Remarkable!"
+        pctGood >= 50 -> "💪 Good progress!"
+        else -> "🌱 Better next year!"
+    }
+}"
             dec31Tv.setTextColor(Color.parseColor("#E4E0F4"))
             dec31Tv.textSize = 13f
             dec31Tv.lineSpacingMultiplier = 1.5f
